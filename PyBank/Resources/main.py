@@ -43,35 +43,3 @@ with open(budget_data_csv_path, newline="") as csvfile:
             profit_loss_changes.append(profit_loss_change)
 
             previous_month_profit_loss = current_month_profit_loss
-
-    sum_profit_loss = sum(profit_loss_changes)
-    average_profit_loss = round(sum_profit_loss/(count_months - 1), 2)
-
-    highest_change = max(profit_loss_changes)
-    lowest_change = min(profit_loss_changes)
-
-    highest_month_index = profit_loss_changes.index(highest_change)
-    lowest_month_index = profit_loss_changes.index(lowest_change)
-
-    best_month = months[highest_month_index]
-    worst_month = months[lowest_month_index]
-
-print("Financial Analysis")
-print("----------------------------")
-print(f"Total Months:  {count_months}")
-print(f"Total:  ${net_profit_loss}")
-print(f"Average Change:  ${average_profit_loss}")
-print(f"Greatest Increase in Profits:  {best_month} (${highest_change})")
-print(f"Greatest Decrease in Losses:  {worst_month} (${lowest_change})")
-
-
-budget_file = os.path.join("budget_data.txt")
-with open(budget_file, "w") as outfile:
-
-    outfile.write("Financial Analysis\n")
-    outfile.write("----------------------------\n")
-    outfile.write(f"Total Months:  {count_months}\n")
-    outfile.write(f"Total:  ${net_profit_loss}\n")
-    outfile.write(f"Average Change:  ${average_profit_loss}\n")
-    outfile.write(f"Greatest Increase in Profits:  {best_month} (${highest_change})\n")
-    outfile.write(f"Greatest Decrease in Losses:  {worst_month} (${lowest_change})\n")
